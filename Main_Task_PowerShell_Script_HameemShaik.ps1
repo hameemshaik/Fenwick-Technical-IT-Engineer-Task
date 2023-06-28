@@ -109,7 +109,8 @@ Set-AzVirtualNetwork `
 
 # Adding a rule to the network security group - 5. To Make sure the machine is secure with only secure public web access.
 
-$nSG01 | Add-AzNetworkSecurityRuleConfig `             -Name $ruleName `
+$nSG01 | Add-AzNetworkSecurityRuleConfig ` 
+            -Name $ruleName `
             -Description "Allow port 443 for secure webserver access" `
 	        -Access Allow `
 	        -Protocol Tcp `
@@ -161,11 +162,13 @@ Get-AzVM <# Shows all available virtual machines. #>
 Get-AzVM `
     -ResourceGroupName $resourceGroupName
 
-$vault01 = New-AzRecoveryServicesVault `            -Name $vaultName `
+$vault01 = New-AzRecoveryServicesVault `
+            -Name $vaultName `
             -ResourceGroupName $resourceGroupName `
             -Location $locationName
 
-Get-AzRecoveryServicesVault `    -Name $vaultName `
+Get-AzRecoveryServicesVault `
+    -Name $vaultName `
     -ResourceGroupName $resourceGroupName <# Shows all available vaults. #>
 
 
